@@ -4,13 +4,16 @@
   "description": "graphql experiment",
   "main": "server.js",
   "scripts": {
-    "dev:server": "nodemon server.js",
-    "json:server": "json-server --watch data.json"
+    "dev:server": "concurrently \"npm run server\" \"npm run client\"",
+    "json:server": "json-server --watch data.json",
+    "client": "npm start --prefix client",
+    "server": "nodemon server.js"
   },
   "author": "RP",
   "license": "MIT",
   "dependencies": {
     "axios": "^0.18.0",
+    "concurrently": "^4.1.0",
     "cors": "^2.8.5",
     "express": "^4.16.4",
     "express-graphql": "^0.7.1",
